@@ -243,7 +243,7 @@ Returns the day count in a specified month according to universal time.
 
 &nbsp;
 
-***
+---
 ### Designed by: ZulNs
 #### Gorontalo, 10 February 2019
-***
+---
