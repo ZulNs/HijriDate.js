@@ -2,8 +2,6 @@
 
 &nbsp;
 
-&nbsp;
-
 ## Constructor
 
 Creates a JavaScript **`HijriDate`** instance that represents a single moment in time. `HijriDate` objects use a [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of milliseconds since 1 January 1970 UTC which is equivalent to 22 Syawwal 1389 UTC.
