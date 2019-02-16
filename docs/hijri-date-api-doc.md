@@ -17,17 +17,14 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
 
 ### Parameters
 
-**Note:** The argument ``monthIndex`` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
+**Note:** The argument `monthIndex` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
 
 **Note:** Where `HijriDate` is called as a constructor with more than one argument, if values are greater than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g. `new HijriDate(1439, 16, 1)` is equivalent to `new HijriDate(1440, 4, 1)`, both create a date for `1440-05-01` (note that the month is 0-based). Similarly for other values: `new HijriDate(1440, 4, 1, 0, 70)` is equivalent to `new HijriDate(1440, 4, 1, 1, 10)` which both create a date for `1440-05-01T01:10:00`.
 
-<p class="note"><strong>Note:</strong> Where <code class="hdate">HijriDate</code> is called as a constructor with more than one argument, the specified
-arguments represent local time. If UTC is desired, use
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="hdate">HijriDate.UTC</span>(<span class="value">...</span>))</code>
-with the same arguments.</p>
+**Note:** Where `HijriDate` is called as a constructor with more than one argument, the specified arguments represent local time. If UTC is desired, use `new HijriDate(HijriDate.UTC(...))` with the same arguments.
 
-<code class="value">value</code><br>
-A [Unix&nbsp;Time&nbsp;Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00.000&nbsp;UTC.
+`value`
+A [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22 Syawwal 1389, 00:00:00.000 UTC.
 
 <code class="value">fullYear</code><br>
 Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era. Value 0 for 1&nbsp;BH, -1 for 2&nbsp;BH, and so forth.
