@@ -1,276 +1,234 @@
 # HijriDate API Documentation
 
-***
-
 &nbsp;
 
 ## Constructor
 
-Creates a JavaScript <code class="hdate"><strong>HijriDate</strong></code> instance that represents a single moment in time.
-<code class="hdate">HijriDate</code> objects use a
-[Unix&nbsp;Time&nbsp;Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of
-milliseconds since 1&nbsp;January&nbsp;1970&nbsp;UTC which is equivalent to 22&nbsp;Syawwal&nbsp;1389&nbsp;UTC.
-
-***
+Creates a JavaScript **`HijriDate`** instance that represents a single moment in time. `HijriDate` objects use a [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of milliseconds since 1 January 1970 UTC which is equivalent to 22 Syawwal 1389 UTC.
 
 ## Syntax
 
-<pre><code><span class="keyword">new</span> <span class="hdate">HijriDate</span>();
-<span class="keyword">new</span> <span class="hdate">HijriDate</span>(<i class="value">value</i>);
-<span class="keyword">new</span> <span class="hdate">HijriDate</span>(<i class="value">fullYear</i>, <i class="value">monthIndex</i>[, <i class="value">day</i>[, <i class="value">hours</i>[, <i class="value">minutes</i>[, <i class="value">seconds</i>[, <i class="value">milliseconds</i>]]]]]);
-</code></pre>
+```javascript
+new HijriDate();
+new HijriDate(value);
+new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseconds]]]]]);
+```
 
-<p class="note"><strong>Note:</strong> JavaScript <code class="hdate">HijriDate</code> objects can only be instantiated by calling JavaScript
-<code class="hdate">HijriDate</code> as a constructor: calling it as a regular function (i.e. without the <code class="keyword">new</code> operator) will return
-a string rather than a <code class="hdate">HijriDate</code> object; unlike other JavaScript object types, JavaScript <code class="hdate">HijriDate</code>
-objects have no literal syntax.</p>
+**Note:** JavaScript `HijriDate` objects can only be instantiated by calling JavaScript `HijriDate` as a constructor: calling it as a regular function (i.e. without the `new` operator) will return a string rather than a `HijriDate` object.
 
-<h3><span class="subtitle">Parameters</span></h3>
+### Parameters
 
-<p class="note"><strong>Note:</strong> The argument <code class="value">monthIndex</code> is 0-based. This means that
-<code class="value">Muharram&nbsp;=&nbsp;0</code> and <code class="value">Dhul-Hijja&nbsp;=&nbsp;11</code>.</p>
+**Note:** The argument `monthIndex` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
 
-<p class="note"><strong>Note:</strong> Where <code class="hdate">HijriDate</code> is called as a constructor with more than one argument, if values are greater
-than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g.
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1439</span>,&nbsp;<span class="value">16</span>,&nbsp;<span class="value">1</span>)</code>
-is equivalent to
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>)</code>,
-both create a date for <code class="value">1440-05-01</code> (note that the month is 0-based). Similarly for other values:
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">0</span>,&nbsp;<span class="value">70</span>)</code>
-is equivalent to
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">10</span>)</code>
-which both create a date for <code class="value">1440-05-01T01:10:00</code>.</p>
+**Note:** Where `HijriDate` is called as a constructor with more than one argument, if values are greater than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g. `new HijriDate(1439, 16, 1)` is equivalent to `new HijriDate(1440, 4, 1)`, both create a date for `1440-05-01` (note that the month is 0-based). Similarly for other values: `new HijriDate(1440, 4, 1, 0, 70)` is equivalent to `new HijriDate(1440, 4, 1, 1, 10)` which both create a date for `1440-05-01T01:10:00`.
 
-<p class="note"><strong>Note:</strong> Where <code class="hdate">HijriDate</code> is called as a constructor with more than one argument, the specified
-arguments represent local time. If UTC is desired, use
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="hdate">HijriDate.UTC</span>(<span class="value">...</span>))</code>
-with the same arguments.</p>
+**Note:** Where `HijriDate` is called as a constructor with more than one argument, the specified arguments represent local time. If UTC is desired, use `new HijriDate(HijriDate.UTC(...))` with the same arguments.
 
-<code class="value">value</code><br>
-A [Unix&nbsp;Time&nbsp;Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00.000&nbsp;UTC.
+`value`<br>
+A [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22 Syawwal 1389, 00:00:00.000 UTC.
 
-<code class="value">fullYear</code><br>
-Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era. Value 0 for 1&nbsp;BH, -1 for 2&nbsp;BH, and so forth.
+`fullYear`<br>
+Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era. Value 0 for 1 BH, -1 for 2 BH, and so forth.
 
-<code class="value">monthIndex</code><br>
+`monthIndex`<br>
 Integer value representing the month, beginning with 0 for Muharram to 11 for Dhul-Hijja.
 
-<code class="value">day</code> <span class="option">optional</span><br>
+`day` (optional)<br>
 Integer value representing the day of the month.
 
-<code class="value">hours</code> <span class="option">optional</span><br>
+`hours` (optional)<br>
 Integer value representing the hour of the day.
 
-<code class="value">minutes</code> <span class="option">optional</span><br>
+`minutes` (optional)<br>
 Integer value representing the minute segment of a time.
 
-<code class="value">seconds</code> <span class="option">optional</span><br>
+`seconds` (optional)<br>
 Integer value representing the second segment of a time.
 
-<code class="value">milliseconds</code> <span class="option">optional</span><br>
+`milliseconds` (optional)<br>
 Integer value representing the millisecond segment of a time.
-
-***
 
 ## Description
 
-*   If no arguments are provided, the constructor creates a JavaScript <code class="hdate">HijriDate</code> object for the current date and time according to
+*   If no arguments are provided, the constructor creates a JavaScript `HijriDate` object for the current date and time according to
 system settings for timezone offset.
 
 *   If at least two arguments are supplied, missing arguments are either set to 1 (if the day is missing) or 0 for all others.
 
-*   The JavaScript Hijri date is based on a time value that is milliseconds since midnight 22&nbsp;Syawwal&nbsp;1389&nbsp;UTC. A day holds 86,400,000
-milliseconds. The JavaScript <code class="hdate">HijriDate</code> object range is -103,757,843 days to 104,249,991 days relative to
-22&nbsp;Syawwal&nbsp;1389&nbsp;UTC.
+*   The JavaScript Hijri date is based on a time value that is milliseconds since midnight 22 Syawwal 1389 UTC. A day holds 86,400,000 milliseconds. The JavaScript `HijriDate` object range is -103,757,843 days to 104,249,991 days relative to 22 Syawwal 1389 UTC.
 
-*   The JavaScript <code class="hdate">HijriDate</code> object provides uniform behavior across platforms. The time value can be passed between systems to
-create a date that represents the same moment in time.
+*   The JavaScript `HijriDate` object provides uniform behavior across platforms. The time value can be passed between systems to create a date that represents the same moment in time.
 
-*   The JavaScript <code class="hdate">HijriDate</code> object supports a number of UTC (universal) methods, as well as local time methods. UTC, also known as
-Greenwich Mean Time (GMT), refers to the time as set by the World Time Standard. The local time is the time known to the computer where JavaScript is executed.
+*   The JavaScript `HijriDate` object supports a number of UTC (universal) methods, as well as local time methods. UTC, also known as Greenwich Mean Time (GMT), refers to the time as set by the World Time Standard. The local time is the time known to the computer where JavaScript is executed.
 
-*   Invoking JavaScript <code class="hdate">HijriDate</code> as a function (i.e., without the <code class="keyword">new</code> operator) will return a string
-representing the specified date and time.
-
-***
+*   Invoking JavaScript `HijriDate` as a function (i.e., without the `new` operator) will return a string representing the specified date and time.
 
 ## Properties
 
-<code><span class="hdate">HijriDate</span>.<span class="hdate">DIFF</span></code><br>
-A constant integer value (i.e. -42,521,587,200,000) that is milliseconds value of 1&nbsp;Muharram&nbsp;0001 (equivalent to 19&nbsp;July&nbsp;0622) relative to
-22&nbsp;Syawwal&nbsp;1389 (equivalent to 1&nbsp;January&nbsp;1970).
+`HijriDate.DIFF`<br>
+A constant integer value (i.e. -42,521,587,200,000) that is milliseconds value of 1 Muharram 0001 (equivalent to 19 July 0622) relative to
+22 Syawwal 1389 (equivalent to 1 January 1970).
 
-<code><span class="hdate">HijriDate</span>.<span class="hdate">MOON_CYCLE</span></code><br>
+`HijriDate.MOON_CYCLE`<br>
 A constant float (i.e. 29.5305882) that is average value of one synodic month of the Moon to completes one orbit around the Earth in days.
 
-<code><span class="hdate">HijriDate</span>.<span class="hdate">prototype</span></code><br>
-Allows the addition of properties to a JavaScript <code class="hdate">HijriDate</code> object.
-
-***
+`HijriDate.prototype`<br>
+Allows the addition of properties to a JavaScript `HijriDate` object.
 
 ## Methods
 
-<code><span class="hdate">HijriDate.dayCount</span>(<span class="value">monthCount</span>)</code><br>
-Returns the number of days for a given number of Hijri month specified by <code class="value">monthCount</code> parameter since Muharram&nbsp;0001.
+`HijriDate.dayCount(monthCount)`<br>
+Returns the number of days for a given number of Hijri month specified by `monthCount` parameter since Muharram 0001.
 
-<code><span class="hdate">HijriDate.dayCountInMonth</span>(<span class="value">monthCount</span>)</code><br>
-Returns the number of days in a certain Hijri month specified by <code class="value">monthCount</code> parameter.
-<code class="value">monthCount&nbsp;=&nbsp;0</code> is equivalent to Muharram&nbsp;0001, <code class="value">monthCount&nbsp;=&nbsp;1</code> is equivalent to
-Safar&nbsp;0001, <code class="value">monthCount&nbsp;=&nbsp;12</code> is equivalent to Muharram&nbsp;0002, and so forth. Conversely, if
-<code class="value">monthCount&nbsp;=&nbsp;-1</code> then return value will be negative, it is equivalent to Dhul-Hijja&nbsp;0001&nbsp;BH.
+`HijriDate.dayCountInMonth(monthCount)`<br>
+Returns the number of days in a certain Hijri month specified by `monthCount` parameter. `monthCount = 0` is equivalent to Muharram 0001, `monthCount = 1` is equivalent to Safar 0001, `monthCount = 12` is equivalent to Muharram 0002, and so forth. Conversely, if `monthCount = -1` then return value will be negative, it is equivalent to Dhul-Hijja 0001 BH.
 
-<code><span class="hdate">HijriDate</span>.<span class="hdate">now</span>()</code><br>
-Returns the numeric value corresponding to the current time - the number of milliseconds elapsed since 22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC, with leap seconds ignored.
+`HijriDate.now()`<br>
+Returns the numeric value corresponding to the current time - the number of milliseconds elapsed since 22 Syawwal 1389, 00:00:00 UTC, with leap seconds ignored.
 
-<code><span class="hdate">HijriDate</span>.<span class="hdate">UTC</span>()</code><br>
-Accepts the same parameters as the longest form of the constructor (i.e. 2 to 7) and returns the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC, with leap seconds ignored.
+`HijriDate.UTC()`<br>
+Accepts the same parameters as the longest form of the constructor (i.e. 2 to 7) and returns the number of milliseconds since 22 Syawwal 1389, 00:00:00 UTC, with leap seconds ignored.
 
-***
+## JavaScript `HijriDate` instance
 
-## JavaScript <code class="hdate">HijriDate</code> instance
+All `HijriDate` instances inherit from `HijriDate.prototype`. The prototype object of the `HijriDate` constructor can be modified to affect all `HijriDate` instances.
 
-All <code class="hdate">HijriDate</code> instances inherit from <code><span class="hdate">HijriDate</span>.<span class="hdate">prototype</span></code>. The
-prototype object of the <code class="hdate">HijriDate</code> constructor can be modified to affect all <code class="hdate">HijriDate</code> instances.
+### `HijriDate.prototype` Methods
 
-<h3><span class="subtitle"><code style="color:#fff;background-color:transparent">HijriDate.prototype</code> Methods</span></h3>
+### Getter
 
-<h3><span class="subtitle">Getter</span></h3>
+`.getDate()`<br>
+Returns the day of the month (1-29 or 1-31) for the specified date according to local time.
 
-<code>.<span class="hdate">getDate</span>()</code><br>
-Returns the day of the month (1-29&nbsp;or&nbsp;1-31) for the specified date according to local time.
-
-<code>.<span class="hdate">getDay</span>()</code><br>
+`.getDay()`<br>
 Returns the day of the week (0-6) for the specified date according to local time.
 
-<code>.<span class="hdate">getFullYear</span>()</code><br>
+`.getFullYear()`<br>
 Returns the year (4 digits for 4-digit years) of the specified date according to local time.
 
-<code>.<span class="hdate">getHours</span>()</code><br>
+`.getHours()`<br>
 Returns the hour (0-23) in the specified date according to local time.
 
-<code>.<span class="hdate">getMilliseconds</span>()</code><br>
+`.getMilliseconds()`<br>
 Returns the milliseconds (0-999) in the specified date according to local time.
 
-<code>.<span class="hdate">getMinutes</span>()</code><br>
+`.getMinutes()`<br>
 Returns the minutes (0-59) in the specified date according to local time.
 
-<code>.<span class="hdate">getMonth</span>()</code><br>
+`.getMonth()`<br>
 Returns the month index (0-11) in the specified date according to local time.
 
-<code>.<span class="hdate">getSeconds</span>()</code><br>
+`.getSeconds()`<br>
 Returns the seconds (0-59) in the specified date according to local time.
 
-<code>.<span class="hdate">getTime</span>()</code><br>
-Returns the numeric value of the specified date as the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC (negative for prior times).
+`.getTime()`<br>
+Returns the numeric value of the specified date as the number of milliseconds since 22 Syawwal 1389, 00:00:00 UTC (negative for prior times).
 
-<code>.<span class="hdate">getTimezoneOffset</span>()</code><br>
+`.getTimezoneOffset()`<br>
 Returns the time-zone offset in minutes for the current locale.
 
-<code>.<span class="hdate">getUTCDate</span>()</code><br>
-Returns the day (date) of the month (1-29&nbsp;or&nbsp;1-30) in the specified date according to universal time.
+`.getUTCDate()`<br>
+Returns the day (date) of the month (1-29 or 1-30) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCDay</span>()</code><br>
+`.getUTCDay()`<br>
 Returns the day of the week (0-6) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCFullYear</span>()</code><br>
+`.getUTCFullYear()`<br>
 Returns the year (4 digits for 4-digit years) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCHours</span>()</code><br>
+`.getUTCHours()`<br>
 Returns the hours (0-23) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCMilliseconds</span>()</code><br>
+`.getUTCMilliseconds()`<br>
 Returns the milliseconds (0-999) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCMinutes</span>()</code><br>
+`.getUTCMinutes()`<br>
 Returns the minutes (0-59) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCMonth</span>()</code><br>
+`.getUTCMonth()`<br>
 Returns the month (0-11) in the specified date according to universal time.
 
-<code>.<span class="hdate">getUTCSeconds</span>()</code><br>
+`.getUTCSeconds()`<br>
 Returns the seconds (0-59) in the specified date according to universal time.
 
-<h3><span class="subtitle">Setter</span></h3>
+<h3><span class="subtitle">Setter</h3>
 
-<code>.<span class="hdate">setDate</span>()</code><br>
+`.setDate()`<br>
 Sets the day of the month for a specified date according to local time.
 
-<code>.<span class="hdate">setFullYear</span>()</code><br>
+`.setFullYear()`<br>
 Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to local time.
 
-<code>.<span class="hdate">setHours</span>()</code><br>
+`.setHours()`<br>
 Sets the hours for a specified date according to local time.
 
-<code>.<span class="hdate">setMilliseconds</span>()</code><br>
+`.setMilliseconds()`<br>
 Sets the milliseconds for a specified date according to local time.
 
-<code>.<span class="hdate">setMinutes</span>()</code><br>
+`.setMinutes()`<br>
 Sets the minutes for a specified date according to local time.
 
-<code>.<span class="hdate">setMonth</span>()</code><br>
+`.setMonth()`<br>
 Sets the month for a specified date according to local time.
 
-<code>.<span class="hdate">setSeconds</span>()</code><br>
+`.setSeconds()`<br>
 Sets the seconds for a specified date according to local time.
 
-<code>.<span class="hdate">setTime</span>()</code><br>
-Sets the Date object to the time represented by a number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC, allowing for negative numbers for times prior.
+`.setTime()`<br>
+Sets the Date object to the time represented by a number of milliseconds since 22 Syawwal 1389, 00:00:00 UTC, allowing for negative numbers for times prior.
 
-<code>.<span class="hdate">setUTCDate</span>()</code><br>
+`.setUTCDate()`<br>
 Sets the day of the month for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCFullYear</span>()</code><br>
+`.setUTCFullYear()`<br>
 Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCHours</span>()</code><br>
+`.setUTCHours()`<br>
 Sets the hour for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCMilliseconds</span>()</code><br>
+`.setUTCMilliseconds()`<br>
 Sets the milliseconds for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCMinutes</span>()</code><br>
+`.setUTCMinutes()`<br>
 Sets the minutes for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCMonth</span>()</code><br>
+`.setUTCMonth()`<br>
 Sets the month for a specified date according to universal time.
 
-<code>.<span class="hdate">setUTCSeconds</span>()</code><br>
+`.setUTCSeconds()`<br>
 Sets the seconds for a specified date according to universal time.
 
-<h3><span class="subtitle">Conversion getter</span></h3>
+### Conversion getter
 
-<code>.<span class="hdate">toDateString</span>()</code><br>
-Returns the "date" portion of the <code class="hdate">HijriDate</code> as a human-readable string like "Jum&nbsp;JAk&nbsp;03&nbsp;1440".
+`.toDateString()`<br>
+Returns the "date" portion of the `HijriDate` as a human-readable string like "Jum JAk 03 1440".
 
-<code>.<span class="hdate">toISOString</span>()</code><br>
+`.toISOString()`<br>
 Converts a date to a string following the ISO 8601 Extended Format.
 
-<code>.<span class="hdate">toJSON</span>()</code><br>
-Returns a string representing the <code class="hdate">HijriDate</code> using <code>.<span class="hdate">toISOString</span>()</code>. Intended for use by
-<code><span class="keyword">JSON</span>.<span class="keyword">stringify</span>()</code>.
+`.toJSON()`<br>
+Returns a string representing the `HijriDate` using `.toISOString()`. Intended for use by `JSON.stringify()`.
 
-<code>.<span class="hdate">toString</span>()</code><br>
-Returns a string representing the specified <code class="hdate">HijriDate</code> object. Overrides the
-<code><span class="keyword">Object</span>.<span class="keyword">prototype</span>.<span class="keyword">toString</span>()</code> method.
+`.toString()`<br>
+Returns a string representing the specified `HijriDate` object. Overrides the `Object.prototype.toString()` method.
 
-<code>.<span class="hdate">toTimeString</span>()</code><br>
-Returns the "time" portion of the <code class="hdate">HijriDate</code> as a human-readable string.
+`.toTimeString()`<br>
+Returns the "time" portion of the `HijriDate` as a human-readable string.
 
-<code>.<span class="hdate">toUTCString</span>()</code><br>
+`.toUTCString()`<br>
 Converts a date to a string using the UTC timezone.
 
-<code>.<span class="hdate">valueOf</span>()</code><br>
-Returns the primitive value of a <code class="hdate">HijriDate</code> object. Overrides the
-<code><span class="keyword">Object</span>.<span class="keyword">prototype</span>.<span class="keyword">valueOf</span>()</code> method.
+`.valueOf()`<br>
+Returns the primitive value of a `HijriDate` object. Overrides the `Object.prototype.valueOf()` method.
 
-<h3><span class="subtitle">Extended getter</span></h3>
+## Extended getter
 
-By using this library, the following methods will be added to <code><span class="keyword">Date</span>.<span class="keyword">prototype</span></code> as well.
+By using this library, the following methods will be added to `Date.prototype` as well.
 
-<code>.<span class="hdate">getDayCountInMonth</span>()</code><br>
+`.getDayCountInMonth()`<br>
 Returns the day count in a specified month according to local time.
 
-<code>.<span class="hdate">getUTCDayCountInMonth</span>()</code><br>
+`.getUTCDayCountInMonth()`<br>
 Returns the day count in a specified month according to universal time.
 
 &nbsp;
@@ -280,18 +238,6 @@ Returns the day count in a specified month according to universal time.
 &nbsp;
 
 ---
-### Designed&nbsp;by:&nbsp;<span class="tag" style="color:#fff;background-color:#f44336">Z</span>&nbsp;<span class="tag" style="color:#000;background-color:#ffeb3b">u</span>&nbsp;<span class="tag black" style="color:#fff;background-color:#000">l</span>&nbsp;<span class="tag" style="color:#000;background-color:#00bcd4">N</span>&nbsp;<span class="tag" style="color:#fff;background-color:#9c27b0">s</span>
-### Gorontalo,&nbsp;10&nbsp;February&nbsp;2019
+### Designed by: ZulNs
+#### Gorontalo, 10 February 2019
 ---
-
-<style rel="stylesheet" type="text/css">
-.hdate{color:#009688}
-.keyword{color:#2196F3}
-.value{color:#f44336}
-pre{border-left:6px solid #009688;padding-left:16px;background-color:#ddffdd}
-pre>code{background-color:#ddffdd}
-.note{border-left:6px solid #ffeb3b;padding:8px 8px 8px 16px;background-color:#ffffcc}
-.option{border-left:4px solid #616161;background-color:#f1f1f1;margin-left:16px;padding:2px 6px 2px 12px}
-.subtitle{color:#fff;background-color:#616161;padding:2px 8px 2px 24px}
-.tag{display:inline-block;width:36px;padding:12px 0px;text-align:center}
-</style>
