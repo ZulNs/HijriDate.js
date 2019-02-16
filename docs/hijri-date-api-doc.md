@@ -290,7 +290,7 @@ Returns the day count in a specified month according to universal time.
 ### Designed&nbsp;by:&nbsp;<span class="tag" style="color:#fff;background-color:#f44336">Z</span>&nbsp;<span class="tag" style="color:#000;background-color:#ffeb3b">u</span>&nbsp;<span class="tag black" style="color:#fff;background-color:#000">l</span>&nbsp;<span class="tag" style="color:#000;background-color:#00bcd4">N</span>&nbsp;<span class="tag" style="color:#fff;background-color:#9c27b0">s</span>
 ### Gorontalo,&nbsp;10&nbsp;February&nbsp;2019
 ---
-<style type="text/css">
+<style rel="stylesheet" type="text/css">
 .hdate{color:#009688}
 .keyword{color:#2196F3}
 .value{color:#f44336}
