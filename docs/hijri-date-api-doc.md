@@ -23,16 +23,16 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
 
 **Note:** Where `HijriDate` is called as a constructor with more than one argument, the specified arguments represent local time. If UTC is desired, use `new HijriDate(HijriDate.UTC(...))` with the same arguments.
 
-`value`
+`value`<br>
 A [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22 Syawwal 1389, 00:00:00.000 UTC.
 
-<code class="value">fullYear</code><br>
-Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era. Value 0 for 1&nbsp;BH, -1 for 2&nbsp;BH, and so forth.
+`fullYear`<br>
+Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era. Value 0 for 1 BH, -1 for 2 BH, and so forth.
 
-<code class="value">monthIndex</code><br>
+`monthIndex`<br>
 Integer value representing the month, beginning with 0 for Muharram to 11 for Dhul-Hijja.
 
-<code class="value">day</code> <span class="option">optional</span><br>
+`day` `  optional`<br>
 Integer value representing the day of the month.
 
 <code class="value">hours</code> <span class="option">optional</span><br>
