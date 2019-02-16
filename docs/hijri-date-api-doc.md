@@ -287,7 +287,7 @@ Returns the day count in a specified month according to universal time.
 &nbsp;
 
 ---
-### Designed&nbsp;by:&nbsp;<span class="tag" style="color:#fff;background-color:#f44336">Z</span>&nbsp;<span class="tag" style="color:#000;background-color:#ffeb3b">u</span>&nbsp;<span class="tag black" style="color:#fff;background-color:#000">l</span>&nbsp;<span class="tag" style="color:#000;background-color:#00bcd4">N</span>&nbsp;<span class="tag" style="color:#fff;background-color:#9c27b0">s</span>
+### Designed&nbsp;by:&nbsp;<span class="tag" style="color:#fff;background-color:#f44336;display:inline-block;width:36px;padding:12px 0px;text-align:center">Z</span>&nbsp;<span class="tag" style="color:#000;background-color:#ffeb3b">u</span>&nbsp;<span class="tag black" style="color:#fff;background-color:#000">l</span>&nbsp;<span class="tag" style="color:#000;background-color:#00bcd4">N</span>&nbsp;<span class="tag" style="color:#fff;background-color:#9c27b0">s</span>
 ### Gorontalo,&nbsp;10&nbsp;February&nbsp;2019
 ---
 <style rel="stylesheet" type="text/css">
