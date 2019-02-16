@@ -1,5 +1,9 @@
 # HijriDate API Documentation
 
+&nbsp;
+
+&nbsp;
+
 ## Constructor
 
 Creates a JavaScript **`HijriDate`** instance that represents a single moment in time. `HijriDate` objects use a [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of milliseconds since 1 January 1970 UTC which is equivalent to 22 Syawwal 1389 UTC.
@@ -46,8 +50,6 @@ Integer value representing the second segment of a time.
 `milliseconds` (optional)<br>
 Integer value representing the millisecond segment of a time.
 
-***
-
 ## Description
 
 *   If no arguments are provided, the constructor creates a JavaScript `HijriDate` object for the current date and time according to
@@ -63,8 +65,6 @@ system settings for timezone offset.
 
 *   Invoking JavaScript `HijriDate` as a function (i.e., without the `new` operator) will return a string representing the specified date and time.
 
-***
-
 ## Properties
 
 `HijriDate.DIFF`<br>
@@ -76,8 +76,6 @@ A constant float (i.e. 29.5305882) that is average value of one synodic month of
 
 `HijriDate.prototype`<br>
 Allows the addition of properties to a JavaScript `HijriDate` object.
-
-***
 
 ## Methods
 
@@ -92,8 +90,6 @@ Returns the numeric value corresponding to the current time - the number of mill
 
 `HijriDate.UTC()`<br>
 Accepts the same parameters as the longest form of the constructor (i.e. 2 to 7) and returns the number of milliseconds since 22 Syawwal 1389, 00:00:00 UTC, with leap seconds ignored.
-
-***
 
 ## JavaScript `HijriDate` instance
 
