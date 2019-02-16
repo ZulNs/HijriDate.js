@@ -284,7 +284,7 @@ Returns the day count in a specified month according to universal time.
 ### Gorontalo,&nbsp;10&nbsp;February&nbsp;2019
 ---
 
-<style type="text/css">
+<style rel="stylesheet" type="text/css">
 .hdate{color:#009688}
 .keyword{color:#2196F3}
 .value{color:#f44336}
