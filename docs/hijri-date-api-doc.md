@@ -11,7 +11,6 @@ Creates a JavaScript **`HijriDate`** instance that represents a single moment in
 new HijriDate();
 new HijriDate(value);
 new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseconds]]]]]);
-</code></pre>
 ```
 
 **Note:** JavaScript `HijriDate` objects can only be instantiated by calling JavaScript `HijriDate` as a constructor: calling it as a regular function (i.e. without the `new` operator) will return a string rather than a `HijriDate` object.
