@@ -1,48 +1,26 @@
-HijriDate API Documentation
-===========================
+# HijriDate API Documentation
 
-***
+## Constructor
 
-&nbsp;
+Creates a JavaScript **`HijriDate`** instance that represents a single moment in time. `HijriDate` objects use a
+[Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of milliseconds since 1 January 1970 UTC which is equivalent to 22 Syawwal 1389 UTC.
 
-Constructor
------------
+## Syntax
 
-Creates a JavaScript <code class="hdate"><strong>HijriDate</strong></code> instance that represents a single moment in time.
-<code class="hdate">HijriDate</code> objects use a
-[Unix&nbsp;Time&nbsp;Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of
-milliseconds since 1&nbsp;January&nbsp;1970&nbsp;UTC which is equivalent to 22&nbsp;Syawwal&nbsp;1389&nbsp;UTC.
-
-***
-
-Syntax
-------
-
-<pre><code><span class="keyword">new</span> <span class="hdate">HijriDate</span>();
-<span class="keyword">new</span> <span class="hdate">HijriDate</span>(<i class="value">value</i>);
-<span class="keyword">new</span> <span class="hdate">HijriDate</span>(<i class="value">fullYear</i>, <i class="value">monthIndex</i>[, <i class="value">day</i>[, <i class="value">hours</i>[, <i class="value">minutes</i>[, <i class="value">seconds</i>[, <i class="value">milliseconds</i>]]]]]);
+```javascript
+new HijriDate();
+new HijriDate(value);
+new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseconds]]]]]);
 </code></pre>
+```
 
-<p class="note"><strong>Note:</strong> JavaScript <code class="hdate">HijriDate</code> objects can only be instantiated by calling JavaScript
-<code class="hdate">HijriDate</code> as a constructor: calling it as a regular function (i.e. without the <code class="keyword">new</code> operator) will return
-a string rather than a <code class="hdate">HijriDate</code> object; unlike other JavaScript object types, JavaScript <code class="hdate">HijriDate</code>
-objects have no literal syntax.</p>
+**Note:** JavaScript `HijriDate` objects can only be instantiated by calling JavaScript `HijriDate` as a constructor: calling it as a regular function (i.e. without the `new` operator) will return a string rather than a `HijriDate` object.
 
-<h3><span class="subtitle">Parameters</span></h3>
+### Parameters
 
-<p class="note"><strong>Note:</strong> The argument <code class="value">monthIndex</code> is 0-based. This means that
-<code class="value">Muharram&nbsp;=&nbsp;0</code> and <code class="value">Dhul-Hijja&nbsp;=&nbsp;11</code>.</p>
+**Note:** The argument ``monthIndex`` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
 
-<p class="note"><strong>Note:</strong> Where <code class="hdate">HijriDate</code> is called as a constructor with more than one argument, if values are greater
-than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g.
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1439</span>,&nbsp;<span class="value">16</span>,&nbsp;<span class="value">1</span>)</code>
-is equivalent to
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>)</code>,
-both create a date for <code class="value">1440-05-01</code> (note that the month is 0-based). Similarly for other values:
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">0</span>,&nbsp;<span class="value">70</span>)</code>
-is equivalent to
-<code><span class="keyword">new</span>&nbsp;<span class="hdate">HijriDate</span>(<span class="value">1440</span>,&nbsp;<span class="value">4</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">1</span>,&nbsp;<span class="value">10</span>)</code>
-which both create a date for <code class="value">1440-05-01T01:10:00</code>.</p>
+**Note:** Where `HijriDate` is called as a constructor with more than one argument, if values are greater than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g. `new HijriDate(1439, 16, 1)` is equivalent to `new HijriDate(1440, 4, 1)`, both create a date for `1440-05-01` (note that the month is 0-based). Similarly for other values: `new HijriDate(1440, 4, 1, 0, 70)` is equivalent to `new HijriDate(1440, 4, 1, 1, 10)` which both create a date for `1440-05-01T01:10:00`.
 
 <p class="note"><strong>Note:</strong> Where <code class="hdate">HijriDate</code> is called as a constructor with more than one argument, the specified
 arguments represent local time. If UTC is desired, use
