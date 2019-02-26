@@ -1,0 +1,461 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>HijriDate API Documentation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="ZulNs">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="robots" content="all">
+<meta name="copyright" content="ZulNs">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<!--link rel="icon" href="favicon.png" type="image/png" /-->
+<!--link rel="icon" href="favicon.ico" type="image/x-icon" /-->
+</head>
+<body>
+<link rel="stylesheet" href="../libs/w3css/w3.css"/>
+<script type="text/javascript" src="../libs/hijri-date.js"></script>
+<style type="text/css">
+svg{stroke:currentColor;fill:currentColor;stroke-width:1}
+.w3-button{background-color:transparent}
+.w3-bar-item{border-left:6px solid transparent!important}
+.w3-bar-item:hover{border-color:#f44336!important}
+.w3-bar-item:focus{border-color:#2196F3!important}
+.w3-bar-item.expanded{background-color:#616161}
+.w3-bar-item.expanded:not(:hover) *{color:#fff!important}
+a.collapsed + div,a.collapsed>:nth-child(3),a.expanded>:nth-child(2){display:none!important}
+.w3-codespan{overflow:hidden;white-space:nowrap}
+.w3-bar-block.w3-code{margin:0px!important}
+.tag{display:inline-block;width:36px;padding:8px 0px;text-align:center}
+</style>
+
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" style="width:324px;z-index:2" id="mySidebar">
+  <button class="w3-bar-item w3-button w3-ripple w3-large w3-hide-large w3-leftbar w3-white w3-border-white w3-hover-border-blue" onclick="closeSidebar()"
+		>Close<span class="w3-right">&times;</span></button>
+  <a class="w3-bar-item w3-button w3-ripple" href="#constructor">Constructor</a>
+  <a class="w3-bar-item w3-button w3-ripple" href="#syntax">Syntax</a>
+	<a class="w3-bar-item w3-button w3-ripple collapsed" href="#parameters" onclick="dropdown(this)">
+		<span>Parameters</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</a>
+		<div class="w3-bar-block w3-light-grey w3-code w3-border-indigo w3-text-red">
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#value">value</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#fullYear">fullYear</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#monthIndex">monthIndex</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#day">day</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#hours">hours</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#minutes">minutes</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#seconds">seconds</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-red" href="#milliseconds">milliseconds</a>
+		</div>
+  <a class="w3-bar-item w3-button w3-ripple" href="#desc">Description</a>
+	<a class="w3-bar-item w3-button w3-ripple collapsed" href="#properties" onclick="dropdown(this)">
+		<span>Properties</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</a>
+		<div class="w3-bar-block w3-light-grey w3-code w3-border-green w3-text-teal">
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#diff">HijriDate.DIFF</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#moonCycle">HijriDate.MOON_CYCLE</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#prototype">HijriDate.prototype</a>
+		</div>
+	<a class="w3-bar-item w3-button w3-ripple collapsed" href="#methods" onclick="dropdown(this)">
+		<span>Methods</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</a>
+		<div class="w3-bar-block w3-light-grey w3-code w3-border-deep-purple w3-text-teal">
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#dayCount">HijriDate.dayCount()</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#dayCountInMonth">HijriDate.dayCountInMonth()</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#now">HijriDate.now()</a>
+			<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#utc">HijriDate.UTC()</a>
+		</div>
+  <a class="w3-bar-item w3-button w3-ripple collapsed" href="#instance" onclick="dropdown(this)">
+		<span>JavaScript <code class="w3-text-teal">HijriDate</code> instance</span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+		<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+	</a>
+		<div class="w3-bar-block w3-light-grey">
+			<a class="w3-bar-item w3-button w3-ripple" href="#prototypeMethods"><code class="w3-text-teal">HijriDate.prototype</code> Methods</a>
+			<a class="w3-bar-item w3-button w3-ripple collapsed" href="#getter" onclick="dropdown(this)">
+				<span>Getter</span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+			</a>
+				<div class="w3-bar-block w3-light-grey w3-code w3-border-teal w3-text-teal">
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getDate">.getDate()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getDay">.getDay()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getFullYear">.getFullYear()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getHours">.getHours()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getMilliseconds">.getMilliseconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getMinutes">.getMinutes()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getMonth">.getMonth()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getSeconds">.getSeconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getTime">.getTime()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getTimezoneOffset">.getTimezoneOffset()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcDate">.getUTCDate()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcDay">.getUTCDay()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcFullYear">.getUTCFullYear()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcHours">.getUTCHours()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcMilliseconds">.getUTCMilliseconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcMinutes">.getUTCMinutes()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcMonth">.getUTCMonth()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcSeconds">.getUTCSeconds()</a>
+				</div>
+			<a class="w3-bar-item w3-button w3-ripple collapsed" href="#setter" onclick="dropdown(this)">
+				<span>Setter</span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+			</a>
+				<div class="w3-bar-block w3-light-grey w3-code w3-border-red w3-text-teal">
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setDate">.setDate()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setFullYear">.setFullYear()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setHours">.setHours()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setMilliseconds">.setMilliseconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setMinutes">.setMinutes()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setMonth">.setMonth()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setSeconds">.setSeconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setTime">.setTime()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcDate">.setUTCDate()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcFullYear">.setUTCFullYear()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcHours">.setUTCHours()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcMilliseconds">.setUTCMilliseconds()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcMinutes">.setUTCMinutes()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcMonth">.setUTCMonth()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#setUtcSeconds">.setUTCSeconds()</a>
+				</div>
+			<a class="w3-bar-item w3-button w3-ripple collapsed" href="#conversionGetter" onclick="dropdown(this)">
+				<span>Conversion getter</span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+			</a>
+				<div class="w3-bar-block w3-light-grey w3-code w3-border-indigo w3-text-teal">
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toDateString">.toDateString()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toIsoString">.toISOString()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toJson">.toJSON()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toString">.toString()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toTimeString">.toTimeString()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#toUtcString">.toUTCString()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#valueOf">.valueOf()</a>
+				</div>
+			<a class="w3-bar-item w3-button w3-ripple collapsed" href="#extendedGetter" onclick="dropdown(this)">
+				<span>Extended getter</span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 3L5 7L9 3Z"/></svg></span>
+				<span class="w3-right"><svg width="10" height="10"><path d="M1 7L5 3L9 7Z"/></svg></span>
+			</a>
+				<div class="w3-bar-block w3-light-grey w3-code w3-border-amber w3-text-teal">
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getDayCountInMonth">.getDayCountInMonth()</a>
+					<a class="w3-bar-item w3-button w3-ripple w3-hover-text-teal" href="#getUtcDayCountInMonth">.getUTCDayCountInMonth()</a>
+				</div>
+		</div>
+</nav>
+
+<div class="w3-main" style="margin-left:324px">
+	<header class="w3-container w3-padding w3-teal">
+		<button class="w3-button w3-ripple w3-teal w3-hide-large w3-xlarge w3-left" style="margin:11px 8px 0px -16px" onclick="openSidebar()">
+			<svg width="18" height="23"><path d="M0 6L18 6L18 8L0 8Z M0 13L18 13L18 15L0 15Z M0 20L18 20L18 22L0 22Z"/></svg></button>
+		<h1>HijriDate API Documentation</h1>
+	</header>
+
+	<div class="w3-container">
+		<h2 id="constructor">Constructor</h2>
+		<p>Creates a JavaScript <code class="w3-codespan w3-text-teal"><b>HijriDate</b></code> instance that represents a single moment in time.
+			<code class="w3-codespan w3-text-teal">HijriDate</code> objects use a
+			<a class="w3-text-indigo" href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16">Unix&nbsp;Time&nbsp;Stamp</a>,	an
+			integer value that is the number of milliseconds since 1&nbsp;January&nbsp;1970&nbsp;UTC which is equivalent to 22&nbsp;Syawwal&nbsp;1389&nbsp;UTC.</p>
+		<hr class="w3-border w3-border-teal"/>
+		<h2 id="syntax">Syntax</h2>
+<pre class="w3-code w3-panel w3-pale-green w3-leftbar w3-border-green"><span class="w3-text-indigo">new</span> <span class="w3-text-teal">HijriDate</span>();
+<span class="w3-text-indigo">new</span> <span class="w3-text-teal">HijriDate</span>(<i class="w3-text-red">value</i>);
+<span class="w3-text-indigo">new</span> <span class="w3-text-teal">HijriDate</span>(<i class="w3-text-red">fullYear</i>, <i class="w3-text-red">monthIndex</i>[, <i class="w3-text-red">day</i>[, <i class="w3-text-red">hours</i>[, <i class="w3-text-red">minutes</i>[, <i class="w3-text-red">seconds</i>[, <i class="w3-text-red">milliseconds</i>]]]]]);
+</pre>
+		<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-padding">
+			<b>Note:</b> JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> objects can only be instantiated by calling JavaScript
+			<code class="w3-codespan w3-text-teal">HijriDate</code> as a constructor: calling it as a regular function (i.e. without the
+			<code class="w3-codespan w3-text-indigo">new</code> operator) will return a string rather than a <code class="w3-codespan w3-text-teal">HijriDate</code>
+			object.</div>
+		<h3 id="parameters" class="w3-tag w3-dark-grey"><span class="w3-margin-left">Parameters</span></h3>
+		<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-padding">
+			<b>Note:</b> The argument <code class="w3-codespan w3-text-red">monthIndex</code> is 0-based.	This means that
+			<code class="w3-codespan w3-text-red">Muharram = 0</code> and <code class="w3-codespan w3-text-red">Dhul-Hijja = 11</code>.</div>
+		<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-padding">
+			<b>Note:</b> Where <code class="w3-codespan w3-text-teal">HijriDate</code> is called as a constructor with more than one argument, if values are greater
+			than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g.
+			<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">new</span>
+			<span class="w3-text-teal">HijriDate</span>(<span class="w3-text-red">1439</span>, <span class="w3-text-red">16</span>,
+			<span class="w3-text-red">1</span>)</code>
+			is equivalent to <code class="w3-codespan w3-text-black"><span class="w3-text-indigo">new</span>
+			<span class="w3-text-teal">HijriDate</span>(<span class="w3-text-red">1440</span>, <span class="w3-text-red">4</span>,
+			<span class="w3-text-red">1</span>)</code>, both create a date for <code class="w3-codespan">1440-05-01</code> (note that the month is 0-based).
+			Similarly for other values: <code class="w3-codespan w3-text-black"><span class="w3-text-indigo">new</span>
+			<span class="w3-text-teal">HijriDate</span>(<span class="w3-text-red">1440</span>, <span class="w3-text-red">4</span>,
+			<span class="w3-text-red">1</span>, <span class="w3-text-red">0</span>, <span class="w3-text-red">70</span>)</code> is equivalent to
+			<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">new</span>
+			<span class="w3-text-teal">HijriDate</span>(<span class="w3-text-red">1440</span>, <span class="w3-text-red">4</span>,
+			<span class="w3-text-red">1</span>, <span class="w3-text-red">1</span>, <span class="w3-text-red">10</span>)</code> which both create a date for
+			<code class="w3-codespan">1440-05-01T01:10:00</code>.</div>
+		<div class="w3-panel w3-pale-yellow w3-leftbar w3-border-yellow w3-padding">
+			<b>Note:</b> Where <code class="w3-codespan w3-text-teal">HijriDate</code> is called as a constructor with more than one argument, the specified
+			arguments represent	local time. If UTC is desired, use <code class="w3-codespan w3-text-black"><span class="w3-text-indigo">new</span>
+			<span class="w3-text-teal">HijriDate</span>(<span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">UTC</span>(...))</code> with the same
+			arguments.</div>
+		<div id="value" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">value</code>
+				<div class="w3-margin-left">A
+					<a class="w3-text-indigo" href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16">Unix&nbsp;Time&nbsp;Stamp</a>
+					which is an integer value representing the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389, 00:00:00.000&nbsp;UTC.</div></div>
+		<div id="fullYear" class="w3-margin-bottom">
+			<code class="w3-codespan w3-margin-top w3-text-red">fullYear</code>
+				<div class="w3-margin-left">Integer value representing the full year. Allow value below 1 (0 or negative value) that indicates before Hijra era.
+					Value 0 for 1&nbsp;BH, -1 for 2&nbsp;BH, and so forth.</div></div>
+		<div id="monthIndex" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">monthIndex</code>
+				<div class="w3-margin-left">Integer value representing the month, beginning with 0 for Muharram to 11 for Dhul-Hijja.</div>
+		</div>
+		<div id="day" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">day</code> <span class="w3-tag w3-light-grey w3-leftbar w3-border-dark-grey w3-margin-left">optional</span>
+				<div class="w3-margin-left">Integer value representing the day of the month.</div></div>
+		<div id="hours" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">hours</code> <span class="w3-tag w3-light-grey w3-leftbar w3-border-dark-grey w3-margin-left">optional</span>
+				<div class="w3-margin-left">Integer value representing the hour of the day.</div></div>
+		<div id="minutes" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">minutes</code> <span class="w3-tag w3-light-grey w3-leftbar w3-border-dark-grey w3-margin-left">optional</span>
+				<div class="w3-margin-left">Integer value representing the minute segment of a time.</div></div>
+		<div id="seconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">seconds</code> <span class="w3-tag w3-light-grey w3-leftbar w3-border-dark-grey w3-margin-left">optional</span>
+				<div class="w3-margin-left">Integer value representing the second segment of a time.</div></div>
+		<div id="milliseconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-red">milliseconds</code> <span class="w3-tag w3-light-grey w3-leftbar w3-border-dark-grey w3-margin-left">optional</span>
+				<div class="w3-margin-left">Integer value representing the millisecond segment of a time.</div></div>
+		<hr class="w3-border w3-border-teal"/>
+		<h2 id="desc">Description</h2>
+		<ul class="w3-ul">
+			<li>If no arguments are provided, the constructor creates a JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> object for the current
+				date and time according to system settings for timezone offset.</li>
+			<li>If at least two arguments are supplied, missing arguments are either set to 1 (if the day is missing) or 0 for all others.</li>
+			<li>The JavaScript Hijri date is based on a time value that is milliseconds since midnight 22&nbsp;Syawwal&nbsp;1389&nbsp;UTC. A day holds 86,400,000
+				milliseconds. The JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> object range is -103,757,843 days to 104,249,991 days relative to
+				22&nbsp;Syawwal&nbsp;1389&nbsp;UTC.</li>
+			<li>The JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> object provides uniform behavior across platforms. The time value can be
+				passed between systems to create a date that represents the same moment in time.</li>
+			<li>The JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> object supports a number of UTC (universal) methods, as well as local time
+				methods. UTC, also known as Greenwich Mean Time (GMT), refers to the time as set by the World Time Standard. The local time is the time known to the
+				computer where JavaScript is executed.</li>
+			<li>Invoking JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> as a function (i.e., without the
+				<code class="w3-codespan w3-text-indigo">new</code> operator) will return a string representing the specified date and time.</li></ul>
+		<hr class="w3-border w3-border-teal"/>
+		<h2 id="properties">Properties</h2>
+		<div id="diff" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">DIFF</span></code>
+				<div class="w3-margin-left">A constant integer value (i.e. -42,521,587,200,000) that is milliseconds value of 1&nbsp;Muharram&nbsp;0001
+					(equivalent to 19&nbsp;July&nbsp;0622) relative to 22&nbsp;Syawwal&nbsp;1389 (equivalent to 1&nbsp;January&nbsp;1970).</div></div>
+		<div id="moonCycle" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">MOON_CYCLE</span></code>
+				<div class="w3-margin-left">A constant float (i.e. 29.5305882) that is average value of one synodic month of the Moon to completes one orbit around
+					the Earth in days.</div></div>
+		<div id="prototype" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">prototype</span></code>
+				<div class="w3-margin-left">Allows the addition of properties to a JavaScript
+					<code class="w3-codespan w3-text-teal">HijriDate</code> object.</div></div>
+		<hr class="w3-border w3-border-teal"/>
+		<h2 id="methods">Methods</h2>
+		<div id="dayCount" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">dayCount</span>(<span class="w3-text-red">monthCount</span>)</code>
+				<div class="w3-margin-left">Returns the number of days for a given number of Hijri month specified by
+					<code class="w3-codespan w3-text-red">monthCount</code> parameter since Muharram&nbsp;0001.</div></div>
+		<div id="dayCountInMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">dayCountInMonth</span>(<span class="w3-text-red">monthCount</span>)</code>
+				<div class="w3-margin-left">Returns the number of days in a certain Hijri month specified by <code class="w3-codespan w3-text-red">monthCount</code>
+					parameter. <code class="w3-codespan w3-text-red">monthCount = 0</code> is equivalent to Muharram&nbsp;0001,
+					<code class="w3-codespan w3-text-red">monthCount = 1</code> is equivalent to Safar&nbsp;0001,
+					<code class="w3-codespan w3-text-red">monthCount = 12</code> is equivalent to Muharram&nbsp;0002, and so forth. Conversely, if
+					<code class="w3-codespan w3-text-red">monthCount = -1</code> then return value will be negative,
+					it is equivalent to Dhul-Hijja&nbsp;0001&nbsp;BH.</div></div>
+		<div id="now" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">now</span>()</code>
+				<div class="w3-margin-left">Returns the numeric value corresponding to the current time - the number of milliseconds elapsed since
+					22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC, with leap seconds ignored.</div></div>
+		<div id="utc" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">UTC</span>()</code>
+				<div class="w3-margin-left">Accepts the same parameters as the longest form of the constructor (i.e.&nbsp;2&nbsp;to&nbsp;7) and returns the number of milliseconds
+					since 22&nbsp;Syawwal&nbsp;1389, 00:00:00&nbsp;UTC, with leap seconds ignored.</div></div>
+		<hr class="w3-border w3-border-teal"/>
+		<h2 id="instance" >JavaScript <code class="w3-codespan w3-text-teal">HijriDate</code> instance</h2>
+		<p>All <code class="w3-codespan w3-text-teal">HijriDate</code> instances inherit from
+			<code class="w3-codespan w3-text-black"><span class="w3-text-teal">HijriDate</span>.<span class="w3-text-teal">prototype</span></code>.
+			The prototype object of the <code class="w3-codespan w3-text-teal">HijriDate</code> constructor can be modified to affect all
+			<code class="w3-codespan w3-text-teal">HijriDate</code> instances.</p>
+		<h3 id="prototypeMethods" class="w3-tag w3-dark-grey"><span class="w3-margin-left"><code>HijriDate.prototype</code> Methods</span></h3>
+		<br/>
+		<h3 id="getter" class="w3-tag w3-dark-grey"><span class="w3-margin-left">Getter</span></h3>
+		<div id="getDate" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getDate</span>()</code>
+				<div class="w3-margin-left">Returns the day of the month (1-29&nbsp;or&nbsp;1-31) for the specified date according to local time.</div></div>
+		<div id="getDay" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getDay</span>()</code>
+				<div class="w3-margin-left">Returns the day of the week (0-6) for the specified date according to local time.</div></div>
+		<div id="getFullYear" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getFullYear</span>()</code>
+				<div class="w3-margin-left">Returns the year (4 digits for 4-digit years) of the specified date according to local time.</div></div>
+		<div id="getHours" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getHours</span>()</code>
+				<div class="w3-margin-left">Returns the hour (0-23) in the specified date according to local time.</div></div>
+		<div id="getMilliseconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getMilliseconds</span>()</code>
+				<div class="w3-margin-left">Returns the milliseconds (0-999) in the specified date according to local time.</div></div>
+		<div id="getMinutes" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getMinutes</span>()</code>
+				<div class="w3-margin-left">Returns the minutes (0-59) in the specified date according to local time.</div></div>
+		<div id="getMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getMonth</span>()</code>
+				<div class="w3-margin-left">Returns the month index (0-11) in the specified date according to local time.</div></div>
+		<div id="getSeconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getSeconds</span>()</code>
+				<div class="w3-margin-left">Returns the seconds (0-59) in the specified date according to local time.</div></div>
+		<div id="getTime" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getTime</span>()</code>
+				<div class="w3-margin-left">Returns the numeric value of the specified date as the number of milliseconds since 22&nbsp;Syawwal&nbsp;1389,
+					00:00:00&nbsp;UTC (negative for prior times).</div></div>
+		<div id="getTimezoneOffset" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getTimezoneOffset</span>()</code>
+				<div class="w3-margin-left">Returns the time-zone offset in minutes for the current locale.</div></div>
+		<div id="getUtcDate" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCDate</span>()</code>
+				<div class="w3-margin-left">Returns the day (date) of the month (1-29&nbsp;or&nbsp;1-30) in the specified date according to universal time.</div></div>
+		<div id="getUtcDay" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCDay</span>()</code>
+				<div class="w3-margin-left">Returns the day of the week (0-6) in the specified date according to universal time.</div></div>
+		<div id="getUtcFullYear" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCFullYear</span>()</code>
+				<div class="w3-margin-left">Returns the year (4 digits for 4-digit years) in the specified date according to universal time.</div></div>
+		<div id="getUtcHours" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCHours</span>()</code>
+				<div class="w3-margin-left">Returns the hours (0-23) in the specified date according to universal time.</div></div>
+		<div id="getUtcMilliseconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCMilliseconds</span>()</code>
+				<div class="w3-margin-left">Returns the milliseconds (0-999) in the specified date according to universal time.</div></div>
+		<div id="getUtcMinutes" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCMinutes</span>()</code>
+				<div class="w3-margin-left">Returns the minutes (0-59) in the specified date according to universal time.</div></div>
+		<div id="getUtcMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCMonth</span>()</code>
+				<div class="w3-margin-left">Returns the month (0-11) in the specified date according to universal time.</div></div>
+		<div id="getUtcSeconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCSeconds</span>()</code>
+				<div class="w3-margin-left">Returns the seconds (0-59) in the specified date according to universal time.</div></div>
+		<h3 id="setter" class="w3-tag w3-dark-grey"><span class="w3-margin-left">Setter</span></h3>
+		<div id="setDate" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setDate</span>()</code>
+				<div class="w3-margin-left">Sets the day of the month for a specified date according to local time.</div></div>
+		<div id="setFullYear" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setFullYear</span>()</code>
+				<div class="w3-margin-left">Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to local time.</div></div>
+		<div id="setHours" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setHours</span>()</code>
+				<div class="w3-margin-left">Sets the hours for a specified date according to local time.</div></div>
+		<div id="setMilliseconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setMilliseconds</span>()</code>
+				<div class="w3-margin-left">Sets the milliseconds for a specified date according to local time.</div></div>
+		<div id="setMinutes" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setMinutes</span>()</code>
+				<div class="w3-margin-left">Sets the minutes for a specified date according to local time.</div></div>
+		<div id="setMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setMonth</span>()</code>
+				<div class="w3-margin-left">Sets the month for a specified date according to local time.</div></div>
+		<div id="setSeconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setSeconds</span>()</code>
+				<div class="w3-margin-left">Sets the seconds for a specified date according to local time.</div></div>
+		<div id="setTime" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setTime</span>()</code>
+				<div class="w3-margin-left">Sets the Date object to the time represented by a number of milliseconds since 22&nbsp;Syawwal&nbsp;1389,
+					00:00:00&nbsp;UTC, allowing for negative numbers for times prior.</div></div>
+		<div id="setUtcDate" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCDate</span>()</code>
+				<div class="w3-margin-left">Sets the day of the month for a specified date according to universal time.</div></div>
+		<div id="setUtcFullYear" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCFullYear</span>()</code>
+				<div class="w3-margin-left">Sets the full year (e.g. 4 digits for 4-digit years) for a specified date according to universal time.</div></div>
+		<div id="setUtcHours" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCHours</span>()</code>
+				<div class="w3-margin-left">Sets the hour for a specified date according to universal time.</div></div>
+		<div id="setUtcMilliseconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCMilliseconds</span>()</code>
+				<div class="w3-margin-left">Sets the milliseconds for a specified date according to universal time.</div></div>
+		<div id="setUtcMinutes" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCMinutes</span>()</code>
+				<div class="w3-margin-left">Sets the minutes for a specified date according to universal time.</div></div>
+		<div id="setUtcMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCMonth</span>()</code>
+				<div class="w3-margin-left">Sets the month for a specified date according to universal time.</div></div>
+		<div id="setUtcSeconds" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">setUTCSeconds</span>()</code>
+				<div class="w3-margin-left">Sets the seconds for a specified date according to universal time.</div></div>
+		<h3 id="conversionGetter" class="w3-tag w3-dark-grey"><span class="w3-margin-left">Conversion getter</span></h3>
+		<div id="toDateString" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toDateString</span>()</code>
+				<div class="w3-margin-left">Returns the "date" portion of the <code class="w3-codespan w3-text-teal">HijriDate</code> as a human-readable string like
+					"Jum&nbsp;JAk&nbsp;03&nbsp;1440".</div></div>
+		<div id="toIsoString" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toISOString</span>()</code>
+				<div class="w3-margin-left">Converts a date to a string following the ISO 8601 Extended Format.</div></div>
+		<div id="toJson" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toJSON</span>()</code>
+				<div class="w3-margin-left">Returns a string representing the <code class="w3-codespan w3-text-teal">HijriDate</code> using
+					<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toISOString</span>()</code>. Intended for use by
+					<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">JSON</span>.<span class="w3-text-indigo">stringify</span>()</code>.</div></div>
+		<div id="toString" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toString</span>()</code>
+				<div class="w3-margin-left">Returns a string representing the specified <code class="w3-codespan w3-text-teal">HijriDate</code> object. Overrides the
+					<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">Object</span>.<span class="w3-text-indigo">prototype</span>.<span class="w3-text-indigo">toString</span>()</code>
+					method.</div></div>
+		<div id="toTimeString" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toTimeString</span>()</code>
+				<div class="w3-margin-left">Returns the "time" portion of the <code class="w3-codespan w3-text-teal">HijriDate</code> as a human-readable
+					string.</div></div>
+		<div id="toUtcString" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">toUTCString</span>()</code>
+				<div class="w3-margin-left">Converts a date to a string using the UTC timezone.</div></div>
+		<div id="valueOf" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">valueOf</span>()</code>
+				<div class="w3-margin-left">Returns the primitive value of a <code class="w3-codespan w3-text-teal">HijriDate</code> object. Overrides the
+				<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">Object</span>.<span class="w3-text-indigo">prototype</span>.<span class="w3-text-indigo">valueOf</span>()</code>
+				method.</div></div>
+		<h3 id="extendedGetter" class="w3-tag w3-dark-grey"><span class="w3-margin-left">Extended getter</span></h3>
+		<p>By using this library, the following methods will be added to
+			<code class="w3-codespan w3-text-black"><span class="w3-text-indigo">Date</span>.<span class="w3-text-indigo">prototype</span></code> as well.</p>
+		<div id="getDayCountInMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getDayCountInMonth</span>()</code>
+				<div class="w3-margin-left">Returns the day count in a specified month according to local time.</div></div>
+		<div id="getUtcDayCountInMonth" class="w3-margin-bottom">
+			<code class="w3-codespan w3-text-black">.<span class="w3-text-teal">getUTCDayCountInMonth</span>()</code>
+				<div class="w3-margin-left">Returns the day count in a specified month according to universal time.</div></div>
+		<div style="height:80vh"></div>
+	</div>
+
+	<footer class="w3-container w3-padding w3-teal">
+		<h3>Designed&nbsp;by:&nbsp;<span class="tag w3-red">Z</span>&nbsp;<span class="tag w3-yellow">u</span>&nbsp;<span class="tag w3-black">l</span>&nbsp;<span class="tag w3-pale-green">N</span>&nbsp;<span class="tag w3-purple">s</span></h3>
+		<h3>Gorontalo, 10 February 2019</h3>
+	</footer>
+</div>
+
+<script type="text/javascript">
+function openSidebar(){
+	document.getElementById("mySidebar").style.display = "block"
+}
+
+function closeSidebar(){
+	document.getElementById("mySidebar").style.display = "none"
+}
+
+function dropdown(el){
+	if(el.className.indexOf('expanded')==-1){
+		el.className=el.className.replace('collapsed','expanded');
+	}else{
+		el.className=el.className.replace('expanded','collapsed');
+	}
+}
+</script>
+</body>
+</html>
