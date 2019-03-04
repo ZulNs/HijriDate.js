@@ -28,3 +28,14 @@ Simply put this code snippet to anywhere you want in the body of your html file:
 ## API Documentation
 - [MarkDown](hijri-date-api-doc.md)
 - [HTML](https://zulns.github.io/HijriDate.js/hijri-date-api-doc.html)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+---
+### Designed by: ZulNs
+#### Gorontalo, 10 February 2019
+---
