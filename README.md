@@ -2,6 +2,9 @@
 
 &nbsp;
 
+## Overview
+JavaScript library to calculates the Hijri-dates in the same way as built-in `Date` object calculates the Gregorian-dates.
+
 ## Usage
 Simply put this code snippet to anywhere you want in the body of your html file:
 
