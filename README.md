@@ -9,7 +9,6 @@ JavaScript library to calculates the Hijri-dates in the same way as built-in `Da
 Simply put this code snippet to anywhere you want in the body of your html file:
 
 ### Offline
-
 ```html
 <script type="text/javascript" src="hijri-date.js"></script>
 <script type="text/javascript">
@@ -19,7 +18,6 @@ Simply put this code snippet to anywhere you want in the body of your html file:
 ```
 
 ### Online
-
 ```html
 <script type="text/javascript" src="https://zulns.github.io/HijriDate.js/hijri-date.js"></script>
 <script type="text/javascript">
