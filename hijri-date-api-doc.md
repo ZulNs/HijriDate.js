@@ -150,7 +150,7 @@ All `HijriDate` instances inherit from `HijriDate.prototype`. The prototype obje
 - **`.getUTCSeconds()`**<br>
   Returns the seconds (0-59) in the specified date according to universal time.
 
-<h3><span class="subtitle">Setter</h3>
+#### Setter
 
 - **`.setDate()`**<br>
   Sets the day of the month for a specified date according to local time.
