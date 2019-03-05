@@ -6,7 +6,7 @@
 
 Creates a JavaScript **`HijriDate`** instance that represents a single moment in time. `HijriDate` objects use a [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16), an integer value that is the number of milliseconds since 1 January 1970 UTC which is equivalent to 22 Syawwal 1389 UTC.
 
-## Syntax
+### Syntax
 
 ```javascript
 new HijriDate();
@@ -48,7 +48,7 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
 - **`milliseconds`** (optional)<br>
   Integer value representing the millisecond segment of a time.
 
-## Description
+### Description
 
 * If no arguments are provided, the constructor creates a JavaScript `HijriDate` object for the current date and time according to
 system settings for timezone offset.
@@ -94,7 +94,7 @@ All `HijriDate` instances inherit from `HijriDate.prototype`. The prototype obje
 
 ### `HijriDate.prototype` Methods
 
-### Getter
+#### Getter
 
 - **`.getDate()`**<br>
   Returns the day of the month (1-29 or 1-31) for the specified date according to local time.
@@ -197,7 +197,7 @@ All `HijriDate` instances inherit from `HijriDate.prototype`. The prototype obje
 - **`.setUTCSeconds()`**<br>
   Sets the seconds for a specified date according to universal time.
 
-### Conversion getter
+#### Conversion getter
 
 - **`.toDateString()`**<br>
   Returns the "date" portion of the `HijriDate` as a human-readable string like "Jum JAk 03 1440".
@@ -220,7 +220,7 @@ All `HijriDate` instances inherit from `HijriDate.prototype`. The prototype obje
 - **`.valueOf()`**<br>
   Returns the primitive value of a `HijriDate` object. Overrides the `Object.prototype.valueOf()` method.
 
-## Extended getter
+#### Extended getter
 
 By using this library, the following methods will be added to `Date.prototype` as well.
 
