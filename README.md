@@ -2,7 +2,7 @@
 
 &nbsp;
 
-[](https://zenodo.org/badge/170972968.svg)
+[https://zenodo.org/badge/170972968.svg]()
 
 ## Overview
 JavaScript library to calculates the Hijri-dates in the same way as built-in `Date` object calculates the Gregorian-dates.
