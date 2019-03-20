@@ -1,7 +1,5 @@
 # JavaScript HijriDate Library
 
-&nbsp;
-
 ![](https://zenodo.org/badge/170972968.svg)
 
 ## Overview
