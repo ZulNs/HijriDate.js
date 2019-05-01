@@ -35,16 +35,24 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
   
   Integer value representing the day of the month.
 
-- **`hours`** (optional)<br>
+- **`hours`**<br>
+  > optional
+  
   Integer value representing the hour of the day.
 
-- **`minutes`** (optional)<br>
+- **`minutes`**<br>
+  > optional
+  
   Integer value representing the minute segment of a time.
 
-- **`seconds`** (optional)<br>
+- **`seconds`**<br>
+  > optional
+  
   Integer value representing the second segment of a time.
 
-- **`milliseconds`** (optional)<br>
+- **`milliseconds`**<br>
+  > optional
+  
   Integer value representing the millisecond segment of a time.
 
 ### Description
