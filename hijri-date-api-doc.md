@@ -32,6 +32,7 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
 
 - **`day`**<br>
   > optional
+  
   Integer value representing the day of the month.
 
 - **`hours`** (optional)<br>
