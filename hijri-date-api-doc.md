@@ -31,7 +31,7 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
   Integer value representing the month, beginning with 0 for Muharram to 11 for Dhul-Hijja.
 
 - **`day`**<br>
-  > optional<br>
+  > optional
   Integer value representing the day of the month.
 
 - **`hours`** (optional)<br>
