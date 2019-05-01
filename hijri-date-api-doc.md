@@ -15,11 +15,11 @@ new HijriDate(fullYear, monthIndex[, day[, hours[, minutes[, seconds[, milliseco
 **Note:** JavaScript `HijriDate` objects can only be instantiated by calling JavaScript `HijriDate` as a constructor: calling it as a regular function (i.e. without the `new` operator) will return a string rather than a `HijriDate` object.
 
 ### Parameters
-**Note:** The argument `monthIndex` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
+> **Note:** The argument `monthIndex` is 0-based. This means that `Muharram = 0` and `Dhul-Hijja = 11`.
 
-**Note:** Where `HijriDate` is called as a constructor with more than one argument, if values are greater than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g. `new HijriDate(1439, 16, 1)` is equivalent to `new HijriDate(1440, 4, 1)`, both create a date for `1440-05-01` (note that the month is 0-based). Similarly for other values: `new HijriDate(1440, 4, 1, 0, 70)` is equivalent to `new HijriDate(1440, 4, 1, 1, 10)` which both create a date for `1440-05-01T01:10:00`.
+> **Note:** Where `HijriDate` is called as a constructor with more than one argument, if values are greater than their logical range (e.g. 16 is provided as the month value or 70 for the minute value), the adjacent value will be adjusted. E.g. `new HijriDate(1439, 16, 1)` is equivalent to `new HijriDate(1440, 4, 1)`, both create a date for `1440-05-01` (note that the month is 0-based). Similarly for other values: `new HijriDate(1440, 4, 1, 0, 70)` is equivalent to `new HijriDate(1440, 4, 1, 1, 10)` which both create a date for `1440-05-01T01:10:00`.
 
-**Note:** Where `HijriDate` is called as a constructor with more than one argument, the specified arguments represent local time. If UTC is desired, use `new HijriDate(HijriDate.UTC(...))` with the same arguments.
+> **Note:** Where `HijriDate` is called as a constructor with more than one argument, the specified arguments represent local time. If UTC is desired, use `new HijriDate(HijriDate.UTC(...))` with the same arguments.
 
 - **`value`**<br>
   A [Unix Time Stamp](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap04.html#tag_04_16) which is an integer value representing the number of milliseconds since 22 Syawwal 1389, 00:00:00.000 UTC.
