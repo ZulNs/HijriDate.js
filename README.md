@@ -1,6 +1,6 @@
 # JavaScript HijriDate Library
 
-[![DOI: 10.5281/zenodo.2600079](https://zenodo.org/badge/doi/10.5281/zenodo.2600079.svg?)](https://zenodo.org/record/2600079)
+[![DOI: 10.5281/zenodo.2600079](https://zenodo.org/badge/doi/10.5281/zenodo.2600079.svg)](https://zenodo.org/record/2600079)
 
 ## Overview
 JavaScript library to calculates the Hijri-dates in the same way as built-in `Date` object calculates the Gregorian-dates.
